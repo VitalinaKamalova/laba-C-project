@@ -26,7 +26,33 @@ for (int i = 0; i < n; i++) {
         scanf("%lf", &matrix2[i][j]);
         }
     }
-    
+    char operation;
+    printf("Vvedite operaziu (+, -, *): ");
+    scanf(" %c", &operation);
+
+switch (operation) {
+    ñase '+':
+        result = matrix_addition(matrix1, matrix2, n);
+            break;
+    case '-':
+        result = matrix_subtraction(matrix1, matrix2, n);
+        break;
+    case '*':
+        result = matrix_multiplication(matrix1, matrix2, n);
+        break;
+    default:
+        printf("nevernaya operazia!\n");
+        return 1;
+}
+
+printf("rezultat operazii:\n");
+for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+        printf("%lf ", result[i][j]);
+    }
+    printf("\n");
+}
+
  // - pamiat'
     for (int i = 0; i < n; i++) {
         free(matrix1[i]);
