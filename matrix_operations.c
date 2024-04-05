@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-double** matrix_operation(double** matrix1, double** matrix2, int n, char operation) {
+double** matrix_calculator(double** matrix1, double** matrix2, int n, char operation) {
     int i,j;
 	double** result = (double**)malloc(n * sizeof(double*));
     for (i = 0; i < n; i++) {
