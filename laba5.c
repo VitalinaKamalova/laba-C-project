@@ -5,6 +5,7 @@
 
 int main() {
     int n,i,j;
+    char operation;
     printf("vvedite razmernost' matrizi n: ");
     scanf("%d", &n);
 
@@ -27,11 +28,10 @@ int main() {
         }
     }
 
-    char operation;
     printf("Vvedite operaziu (+, -, *): ");
     scanf(" %c", &operation);
 
-    double** result = matrix_operation(matrix1, matrix2, n, operation);
+    double** result = matrix_calculator(matrix1, matrix2, n, operation);
 
     printf("rezultat operazii: \n");
     for (i = 0; i < n; i++) {
