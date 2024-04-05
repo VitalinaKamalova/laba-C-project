@@ -1,60 +1,47 @@
+#include <malloc.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "matrix_operations.h"
 
 int main() {
-    int n;
+    int n,i,j;
     printf("vvedite razmernost' matrizi n: ");
     scanf("%d", &n);
 
-    double **matrix1 = (double **)malloc(n * sizeof(double *));
-    double **matrix2 = (double **)malloc(n * sizeof(double *));
-    double **result;
+    double** matrix1 = (double**)malloc(n * sizeof(double*));
+    double** matrix2 = (double**)malloc(n * sizeof(double*));
 
-printf("Vvedite elementi pervoi matrizi:\n");
-for (int i = 0; i < n; i++) {
-    matrix1[i] = (double *)malloc(n * sizeof(double));
-    for (int j = 0; j < n; j++) {
-        scanf("%lf", &matrix1[i][j]);
-    	}
-	}
-
-printf("Vvedite elementi vtoroi matrizi:\n");
-for (int i = 0; i < n; i++) {
-    matrix2[i] = (double *)malloc(n * sizeof(double));
-    for (int j = 0; j < n; j++) {
-        scanf("%lf", &matrix2[i][j]);
+    printf("Vvedite elementi pervoi matrizi: ");
+    for (i = 0; i < n; i++) {
+        matrix1[i] = (double*)malloc(n * sizeof(double));
+        for (j = 0; j < n; j++) {
+            scanf("%lf", &matrix1[i][j]);
         }
     }
+
+    printf("Vvedite elementi vtoroi matrizi: ");
+    for (i = 0; i < n; i++) {
+        matrix2[i] = (double*)malloc(n * sizeof(double));
+        for (j = 0; j < n; j++) {
+            scanf("%lf", &matrix2[i][j]);
+        }
+    }
+
     char operation;
     printf("Vvedite operaziu (+, -, *): ");
     scanf(" %c", &operation);
 
-switch (operation) {
-    ñase '+':
-        result = matrix_addition(matrix1, matrix2, n);
-            break;
-    case '-':
-        result = matrix_subtraction(matrix1, matrix2, n);
-        break;
-    case '*':
-        result = matrix_multiplication(matrix1, matrix2, n);
-        break;
-    default:
-        printf("nevernaya operazia!\n");
-        return 1;
-}
+    double** result = matrix_operation(matrix1, matrix2, n, operation);
 
-printf("rezultat operazii:\n");
-for (int i = 0; i < n; i++) {
-    for (int j = 0; j < n; j++) {
-        printf("%lf ", result[i][j]);
+    printf("rezultat operazii: \n");
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+            printf("%.0f ", result[i][j]);
+        }
+        printf("\n");
     }
-    printf("\n");
-}
 
- // - pamiat'
-    for (int i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) {
         free(matrix1[i]);
         free(matrix2[i]);
         free(result[i]);
