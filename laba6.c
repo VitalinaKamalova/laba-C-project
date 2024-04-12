@@ -8,7 +8,7 @@ int main() {
     int year;
 
     // Открываем файл для чтения
-    list_input = fopen("list_input.txt", "r");
+    list_input = fopen("list_input.txt", "rt");
     if (list_input == NULL) {
         printf("Ошибка открытия файла\n");
         return 1;
