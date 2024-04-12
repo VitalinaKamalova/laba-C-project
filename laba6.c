@@ -7,21 +7,18 @@ int main() {
     char surname[30], name[30], secondname[30];
     int year;
 
-    // Открываем файл для чтения
     list_input = fopen("list_input.txt", "rt");
     if (list_input == NULL) {
-        printf("Ошибка открытия файла\n");
+        printf("oshibka otkrutia faila\n");
         return 1;
     }
 
-    // Открываем файл для записи
     list_output = fopen("list_output.txt", "w");
     if (list_output == NULL) {
-        printf("Ошибка открытия файла\n");
+        printf("oshibka otkrutia faila\n");
         return 1;
     }
 
-    // Считываем строки из файла
     while (fgets(line, sizeof(line), list_input)) {
         sscanf(line, "%s %s %s %d", surname, name, secondname, &year);
         if (year > 1980) {
@@ -29,10 +26,9 @@ int main() {
         }
     }
 
-    // Закрываем файлы
     fclose(list_input);
     fclose(list_output);
 
-    printf("Программа успешно завершила выполнение\n");
+    printf("programma vupolnena uspeshno\n");
     return 0;
 }
