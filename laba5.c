@@ -4,22 +4,22 @@
 #include "matrix_operations.h"
 
 double** creation_matrix( int n){
-    double** matrix1 = (double**)malloc(n * sizeof(double*));
+    double** m = (double**)malloc(n * sizeof(double*));
     printf("Vvedite elementi matrizi: \n");
     for (int i = 0; i < n; i++) {
-        matrix1[i] = (double*)malloc(n * sizeof(double));
+        m[i] = (double*)malloc(n * sizeof(double));
         for (int j = 0; j < n; j++) {
-            scanf("%lf", &matrix1[i][j]);
+            scanf("%lf", &m[i][j]);
         }
     }
-    return matrix1;
+    return m;
 }
 
-void print_matrix(int n,double** matrix1, double** matrix2){
-    char operation;
+void print_matrix(int n,double** m1, double** m2){
+    char op;
     printf("Vvedite operaziu (+, -, *): ");
-    scanf(" %c", &operation);
-    double** result = matrix_calculator(matrix1, matrix2, n, operation);
+    scanf(" %c", &op);
+    double** result = matrix_calculator(m1, m2, n, op);
     printf("rezultat operazii: \n");
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -35,17 +35,17 @@ int main() {
     printf("vvedite razmernost' matrizi n: ");
     scanf("%d", &n);
 
-    double** matrix1 = creation_matrix( n);
-    double** matrix2 = creation_matrix( n);
+    double** m1 = creation_matrix( n);
+    double** m2 = creation_matrix( n);
 
-    print_matrix(n,matrix1,matrix2);
+    print_matrix(n,m1,m2);
 
     for (i = 0; i < n; i++) {
-        free(matrix1[i]);
-        free(matrix2[i]);
+        free(m1[i]);
+        free(m2[i]);
     }
-    free(matrix1);
-    free(matrix2);
+    free(m1);
+    free(m2);
 
     return 0;
 }
