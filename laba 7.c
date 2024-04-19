@@ -9,12 +9,12 @@ struct humen{
 int main(){
 	int n = 4;
 	struct humen p[n];
-	char humen psorted[n];
+	struct humen psorted[n];
 	int i,j;
 	
-	for(int i =0; i<n; i++){
+	for( i =0; i<n; i++){
 		print("Enter the %d person's name, surname and date of birth: ", i+1);
-		scanf("%s %s %d", p[n].name, p[n].surname, $p[n].year);
+		scanf("%s %s %d", p[n].name, p[n].surname, &p[n].year);
 		strcpy(f[i].)
 	}
 	/*
