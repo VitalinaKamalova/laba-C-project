@@ -22,13 +22,16 @@ int main(){
     fscanf(file, "%s %s %d", p[n].name, p[n].surname, $p[n].year);
   }
   fclose(file);*/
-  for ( i = 0; i < n; i++) psorted[i] = p[i];
   for ( i = 0; i < n; i++){
-    for ( j = i+1; j < n; j++) {
-        if (psorted[j].year < psorted[j+1].year ) {
-            t = psorted[j+1];
-            psorted[j+1] = psorted[j];
-            psorted[j] = t;
+  	psorted[i] = p[i];
+  }
+
+  for ( i = 0; i < n-1; i++){
+    for ( j = i+1; j < n-i-1; j++) {
+		if (psorted[j].year > psorted[j+1].year ) {
+            t = psorted[j];
+            psorted[j] = psorted[j+1];
+            psorted[j+1] = t;
         }
     }
   }
