@@ -8,8 +8,7 @@ struct humen{
 
 int main(){
   int n = 4;
-  struct humen p[n];
-  struct humen psorted[n];
+  struct humen p[n], psorted[n], t;
   int i,j;
   
   for( i=0; i < n; i++){
@@ -23,10 +22,19 @@ int main(){
     fscanf(file, "%s %s %d", p[n].name, p[n].surname, $p[n].year);
   }
   fclose(file);*/
-  
+  for ( i = 0; i < n; i++) psorted[i] = p[i];
+  for ( i = 0; i < n; i++){
+    for ( j = i+1; j < n; j++) {
+        if (psorted[j].year < psorted[j+1].year ) {
+            t = psorted[j+1];
+            psorted[j+1] = psorted[j];
+            psorted[j] = t;
+        }
+    }
+  }
   printf("\nSorted list of people: \n");
   for ( i=0; i<n; i++){
-    printf("%s %s %d \n", p[i].name, p[i].surname, p[i].year);
+    printf("%s %s %d \n", psorted[i].name, psorted[i].surname, psorted[i].year);
   }
   
   return 0;  
