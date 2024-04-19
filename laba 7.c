@@ -8,17 +8,22 @@ struct humen{
 
 int main(){
 	int n = 4;
-	struct humen f[n], s[n], y;
-	char name[30], surname[30];
-	int year;
+	struct humen p[n];
+	char humen psorted[n];
+	int i,j;
 	
 	for(int i =0; i<n; i++){
-		print("Enter the %d person's name: ", i+1);
-		scanf("%s", name)
-		print("Enter the %d person's surname: ", i+1);
-		scanf("%s", surname)
-		print("Enter the %d person's year of birth: ", i+1);
-		scanf("%d", year)
-		
+		print("Enter the %d person's name, surname and date of birth: ", i+1);
+		scanf("%s %s %d", p[n].name, p[n].surname, $p[n].year);
+		strcpy(f[i].)
 	}
+	/*
+	FILE *file;
+	file = fopen("people.txt", "r");
+	for (i=0; i<n; i++){
+		fscanf(file, "%s %s %d", p[n].name, p[n].surname, $p[n].year);
+	}
+	fclose(file);*/
+	
+	
 }
