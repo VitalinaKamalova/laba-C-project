@@ -15,7 +15,6 @@ int main(){
 	for( i =0; i<n; i++){
 		print("Enter the %d person's name, surname and date of birth: ", i+1);
 		scanf("%s %s %d", p[n].name, p[n].surname, &p[n].year);
-		strcpy(f[i].)
 	}
 	/*
 	FILE *file;
@@ -25,5 +24,5 @@ int main(){
 	}
 	fclose(file);*/
 	
-	
+	return 0;	
 }
