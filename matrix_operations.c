@@ -7,32 +7,32 @@ double** allocation_memory(int n){
     }
     return result;
 }
-double** matrix_calculator(double** matrix1, double** matrix2, int n, char operation) {
+double** matrix_calculator(double** m1, double** m2, int n, char op) {
     int i,j,k;
 	double** result = allocation_memory( n);
     
-    if (operation == '+') {
+    if (op == '+') {
         for (i = 0; i < n; i++) {
             for (j = 0; j < n; j++) {
-                result[i][j] = matrix1[i][j] + matrix2[i][j];
+                result[i][j] = m1[i][j] + m2[i][j];
             }
         }
     }
     
-    if (operation == '*') {
+    if (op == '-') {
         for (i = 0; i < n; i++) {
             for (j = 0; j < n; j++) {
-                 result[i][j] = matrix1[i][j] - matrix2[i][j];
+                 result[i][j] = m1[i][j] - m2[i][j];
             }
         }
     }
     
-    if (operation == '*') {
+    if (op == '*') {
         for (i = 0; i < n; i++) {
             for (j = 0; j < n; j++) {
                 result[i][j] = 0;
                 for (k = 0; k<n; k++){
-                    result[i][j] += matrix1[i][k] * matrix2[k][j];
+                    result[i][j] += m1[i][k] * m2[k][j];
                 }
             }
         }
