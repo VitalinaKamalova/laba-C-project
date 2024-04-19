@@ -1,1 +1,1 @@
-double** matrix_calculator(double** matrix1, double** matrix2, int n, char operation);
+double** matrix_calculator(double** m1, double** m2, int n, char op);
