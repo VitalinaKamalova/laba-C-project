@@ -23,9 +23,10 @@ int main(){
     fscanf(file, "%s %s %d", p[n].name, p[n].surname, $p[n].year);
   }
   fclose(file);*/
+  
   printf("\nSorted list of people: \n");
   for ( i=0; i<n; i++){
-    printf("%s %s %d /n", p[i].name, p[i].surname, p[i].year);
+    printf("%s %s %d \n", p[i].name, p[i].surname, p[i].year);
   }
   
   return 0;  
