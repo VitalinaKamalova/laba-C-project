@@ -19,7 +19,7 @@ int main(){
   FILE *file;
   file = fopen("people.txt", "r");
   for (i=0; i<n; i++){
-    fscanf(file, "%s %s %d", p[n].name, p[n].surname, $p[n].year);
+    fscanf(file, "%s %s %d", p[n].name, p[n].surname, &p[n].year);
   }
   fclose(file);*/
   for ( i = 0; i < n; i++){
@@ -35,6 +35,7 @@ int main(){
         }
     }
   }
+  
   printf("\nSorted list of people: \n");
   for ( i=0; i<n; i++){
     printf("%s %s %d \n", psorted[i].name, psorted[i].surname, psorted[i].year);
