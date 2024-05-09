@@ -12,14 +12,14 @@ int main(){
   char s[100];
   
   FILE *file;
-  file = fopen("people.txt", "r");
+  file = fopen("FILE.txt", "r");
   while(fgets(s,100,file)!=NULL){
       n++;
   }
   fclose(file);
   
   struct humen p[n], psorted[n], t;
-  file = fopen("people.txt", "r");
+  file = fopen("FILE.txt", "r");
   for (i=0; i<n; i++){
     fscanf(file, "%s %s %d", p[i].name, p[i].surname, &p[i].year);
   }
@@ -46,3 +46,28 @@ int main(){
   
   return 0;  
 }
+ for (i = 0; i < n - 1; i++) { 
+  	for (j = 0; j < n - i - 1; j++) { 
+		if (choice == 1 && psorted[j].year > psorted[j + 1].year) { 
+			t = psorted[j]; psorted[j] = psorted[j + 1]; psorted[j + 1] = t; 
+			} 
+		else if (choice == 2 && strcmp(psorted[j].name, psorted[j + 1].name) > 0) {
+			t = psorted[j]; psorted[j] = psorted[j + 1]; psorted[j + 1] = t; 
+			} 
+		else if (choice == 3 && strcmp(psorted[j].surname, psorted[j + 1].surname) > 0) { 
+			t = psorted[j]; psorted[j] = psorted[j + 1]; psorted[j + 1] = t; 
+			} 
+		else if (choice == 4 && strcmp(psorted[j].sex, psorted[j + 1].sex) > 0) { 
+			t = psorted[j]; psorted[j] = psorted[j + 1]; psorted[j + 1] = t; 
+			}
+		else if (choice == 5 && psorted[j].height > psorted[j + 1].height) { 
+		t = psorted[j]; psorted[j] = psorted[j + 1]; psorted[j + 1] = t; 
+			}
+		} 
+	}
+
+  file = fopen("Sorted_FILE.txt", "w"); 
+  if(file == NULL) { 
+  	printf("Error opening file.\n"); 
+	return 1; 
+  }
