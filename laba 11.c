@@ -37,3 +37,23 @@ int max(int num_args, ...)
     
     return maximum;
 }
+
+int min(int num_args, ...)
+{
+    va_list args;
+    va_start(args, num_args);
+    
+    int minimum = va_arg(args, int);
+    for (int i = 1; i < num_args; i++)
+    {
+        int current = va_arg(args, int);
+        if (current < minimum)
+        {
+            minimum = current;
+        }
+    }
+    
+    va_end(args);
+    
+    return minimum;
+}
