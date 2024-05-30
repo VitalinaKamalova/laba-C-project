@@ -28,12 +28,12 @@ int max(int count, ...){
     return maximum;
 }
 
-int min(int num_args, ...){
+int min(int count, ...){
     va_list args;
-    va_start(args, num_args);
+    va_start(args, count);
     int minimum = va_arg(args, int);
     int i;
-    for ( i = 1; i < num_args; i++){
+    for ( i = 1; i < count; i++){
         int current = va_arg(args, int);
         if (current < minimum){
             minimum = current;
