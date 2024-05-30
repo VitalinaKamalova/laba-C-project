@@ -43,13 +43,13 @@ int min(int count, ...){
     return minimum;
 }
 
-float average(int num_args, ...){
+float average(int count, ...){
     va_list args;
-    va_start(args, num_args);
+    va_start(args, count);
     int total = 0, i;
-    for ( i = 0; i < num_args; i++){
+    for ( i = 0; i < count; i++){
         total += va_arg(args, int);
     }
     va_end(args);
-    return(float)total / num_args;
+    return(float)total / count;
 }
