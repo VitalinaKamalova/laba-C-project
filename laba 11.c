@@ -18,4 +18,22 @@ int sum(int num_args, ...)
     return total;
 }
 
-
+int max(int num_args, ...)
+{
+    va_list args;
+    va_start(args, num_args);
+    
+    int maximum = va_arg(args, int);
+    for (int i = 1; i < num_args; i++)
+    {
+        int current = va_arg(args, int);
+        if (current > maximum)
+        {
+            maximum = current;
+        }
+    }
+    
+    va_end(args);
+    
+    return maximum;
+}
