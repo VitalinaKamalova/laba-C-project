@@ -34,7 +34,8 @@ int min(int num_args, ...)
     va_start(args, num_args);
     
     int minimum = va_arg(args, int);
-    for (int i = 1; i < num_args; i++)
+    int i;
+    for ( i = 1; i < num_args; i++)
     {
         int current = va_arg(args, int);
         if (current < minimum)
