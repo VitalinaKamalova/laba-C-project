@@ -3,32 +3,32 @@
 #include <signal.h>
 
 void new_sigabrt(int signal){
-    printf("Received SIGABRT.");
+    printf("Received SIGABRT."); //6
     exit(1);
 }
 
 void new_sigfpe(int signal){
-    printf("Received SIGFPE.");
+    printf("Received SIGFPE."); //8
     exit(1);
 }
 
 void new_sigill(int signal){
-    printf("Received SIGILL.");
+    printf("Received SIGILL."); //4
     exit(1);
 }
 
 void new_sigint(int signal){
-    printf("Received SIGINT.");
+    printf("Received SIGINT."); //2
     exit(1);
 }
 
 void new_sigsegv(int signal){
-    printf("Received SIGSEGV.");
+    printf("Received SIGSEGV."); //11
     exit(1);
 }
 
 void new_sigterm(int signal){
-    printf("Received SIGTERM.");
+    printf("Received SIGTERM."); //15
     exit(1);
 }
 
