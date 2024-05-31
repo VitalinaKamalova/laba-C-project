@@ -18,7 +18,7 @@ void new_sigill(int sig){
 }
 
 void new_sigint(int sig){
-    printf("Received SIGABRT!");
+    printf("Received SIGINT!");
     exit(1);
 }
 
