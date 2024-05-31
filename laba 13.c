@@ -28,6 +28,6 @@ void new_sigabrt(int sig){
 }
 
 void new_sigabrt(int sig){
-    printf("Oh no! SIGABRT!");
+    printf("Received SIGABRT!");
     exit(1);
 }
