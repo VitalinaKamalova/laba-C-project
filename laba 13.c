@@ -2,32 +2,32 @@
 #include <stdlib.h>
 #include <signal.h>
 
-void new_sigabrt(int signal){
+void new_sigabrt(int signm){
     printf("Received SIGABRT."); //6
     exit(1);
 }
 
-void new_sigfpe(int signal){
+void new_sigfpe(int signum){
     printf("Received SIGFPE."); //8
     exit(1);
 }
 
-void new_sigill(int signal){
+void new_sigill(int signum){
     printf("Received SIGILL."); //4
     exit(1);
 }
 
-void new_sigint(int signal){
+void new_sigint(int signum){
     printf("Received SIGINT."); //2
     exit(1);
 }
 
-void new_sigsegv(int signal){
+void new_sigsegv(int signum){
     printf("Received SIGSEGV."); //11
     exit(1);
 }
 
-void new_sigterm(int signal){
+void new_sigterm(int signum){
     printf("Received SIGTERM."); //15
     exit(1);
 }
@@ -47,8 +47,8 @@ int main()
     if (funcptr == SIG_IGN) signal(SIGSEGV, SIG_IGN);
     funcptr = signal (SIGTERM, new_sigterm);
     if (funcptr == SIG_IGN) signal(SIGTERM, SIG_IGN);
-    int n;
-    scanf("%d", &n);
-    raise(n);
+    int signum;
+    scanf("%d", &signum);
+    raise(signum);
     return 0;
 }
