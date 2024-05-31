@@ -27,7 +27,7 @@ void new_sigsegv(int sig){
     exit(1);
 }
 
-void new_sigabrt(int sig){
+void new_sigterm(int sig){
     printf("Received SIGABRT!");
     exit(1);
 }
