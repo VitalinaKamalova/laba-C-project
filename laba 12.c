@@ -12,4 +12,26 @@ int getDayOfWeek(int year, int month, int day) {
     return date.tm_wday;
 }
 
-
+// ‘ункци€ дл€ вывода календар€ за мес€ц
+void printMonthCalendar(int year, int month) {
+    int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int weekday = getDayOfWeek(year, month, 1);
+    int daysInCurrentMonth = daysInMonth[month - 1];
+    if (month == 2 && (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))) {
+        daysInCurrentMonth = 29;
+    }
+    printf("     %d.%02d\n", year, month);
+    printf("Su Mo Tu We Th Fr Sa\n");
+	int i;
+    for ( i = 0; i < weekday; i++) {
+        printf("   ");
+    }
+	
+    for ( i = 1; i <= daysInCurrentMonth; i++) {
+        printf("%2d ", i);
+        if ((i + weekday) % 7 == 0) {
+            printf("\n");
+        }
+    }
+    printf("\n");
+}
