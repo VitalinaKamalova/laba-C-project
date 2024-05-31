@@ -3,12 +3,12 @@
 #include <signal.h>
 
 void new_sigabrt(int sig){
-    printf("Oh no! SIGABRT!");
+    printf("Received SIGABRT!");
     exit(1);
 }
 
-void new_sigabrt(int sig){
-    printf("Oh no! SIGABRT!");
+void new_sigfpe(int sig){
+    printf("Received SIGFPE!!");
     exit(1);
 }
 
