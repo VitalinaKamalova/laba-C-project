@@ -56,20 +56,20 @@ int main() {
         struct tm* localTime;
         time(&currentTime);
         localTime = localtime(&currentTime);
-        printf("??????? %d.%02d.%02d, ???? ?????? %d\n",
+        printf("Today is %d.%02d.%02d, day of the week %d\n",
                localTime->tm_year + 1900, localTime->tm_mon + 1, localTime->tm_mday,
                getDayOfWeek(localTime->tm_year + 1900, localTime->tm_mon + 1, localTime->tm_mday));
     } else {
         int year, month, day;
         if (sscanf(input, "%d.%d.%d", &year, &month, &day) == 3) {
-            printf("???? ?????? %d.%02d.%02d - %d\n",
+            printf("Day of the week %d.%02d.%02d - %d\n",
                    year, month, day, getDayOfWeek(year, month, day));
         } else if (sscanf(input, "%d.%d", &year, &month) == 2) {
             printMonthCalendar(year, month);
         } else if (sscanf(input, "%d", &year) == 1) {
             printYearCalendar(year);
         } else {
-            printf("???????? ?????? ????.\n");
+            printf("Invalid date format.\n");
         }
     }
 
