@@ -21,3 +21,8 @@ void new_sigabrt(int sig){
     printf("Oh no! SIGABRT!");
     exit(1);
 }
+
+void new_sigabrt(int sig){
+    printf("Oh no! SIGABRT!");
+    exit(1);
+}
