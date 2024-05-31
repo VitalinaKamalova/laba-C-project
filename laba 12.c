@@ -44,3 +44,34 @@ void printYearCalendar(int year) {
         printf("\n");
     }
 }
+
+int main() {
+    char input[20];
+    printf("Enter the date in the format 'year.mm.dd', 'year.mm', 'year' or 'now': ");
+    fgets(input, sizeof(input), stdin);
+    input[strcspn(input, "\n")] = '\0'; 
+
+    if (strcmp(input, "now") == 0) {
+        time_t currentTime;
+        struct tm* localTime;
+        time(&currentTime);
+        localTime = localtime(&currentTime);
+        printf("??????? %d.%02d.%02d, ???? ?????? %d\n",
+               localTime->tm_year + 1900, localTime->tm_mon + 1, localTime->tm_mday,
+               getDayOfWeek(localTime->tm_year + 1900, localTime->tm_mon + 1, localTime->tm_mday));
+    } else {
+        int year, month, day;
+        if (sscanf(input, "%d.%d.%d", &year, &month, &day) == 3) {
+            printf("???? ?????? %d.%02d.%02d - %d\n",
+                   year, month, day, getDayOfWeek(year, month, day));
+        } else if (sscanf(input, "%d.%d", &year, &month) == 2) {
+            printMonthCalendar(year, month);
+        } else if (sscanf(input, "%d", &year) == 1) {
+            printYearCalendar(year);
+        } else {
+            printf("???????? ?????? ????.\n");
+        }
+    }
+
+    return 0;
+}
