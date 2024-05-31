@@ -55,10 +55,10 @@ float average(int count, ...){
 }
 
 int main(){
-    printf("sum: %d\n", sum(5, 1,2,3,4,5));
-    printf("max: %d\n", max(5, 1,2,3,4,5));
-    printf("min: %d\n", min(5, 1,2,3,4,5));
-    printf("averege: %.2f\n", average(5, 1,2,3,4,5));
+    printf("sum: %d\n", sum(10, 1,2,3,4,5,6,7,8,9,10));
+    printf("max: %d\n", max(10, 1,2,3,4,5,6,7,8,9,10));
+    printf("min: %d\n", min(10, 1,2,3,4,5,6,7,8,9,10));
+    printf("averege: %.2f\n", average(10, 1,2,3,4,5,6,7,8,9,10));
     
     return 0;
 }
