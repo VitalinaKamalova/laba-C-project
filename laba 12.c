@@ -35,3 +35,12 @@ void printMonthCalendar(int year, int month) {
     }
     printf("\n");
 }
+
+// Функция для вывода календаря за год
+void printYearCalendar(int year) {
+	int month;
+    for ( month = 1; month <= 12; month++) {
+        printMonthCalendar(year, month);
+        printf("\n");
+    }
+}
