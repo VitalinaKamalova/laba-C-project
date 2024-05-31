@@ -12,8 +12,8 @@ void new_sigfpe(int sig){
     exit(1);
 }
 
-void new_sigabrt(int sig){
-    printf("Oh no! SIGABRT!");
+void new_sigill(int sig){
+    printf("Received SIGILL!");
     exit(1);
 }
 
