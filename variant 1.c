@@ -17,7 +17,7 @@ void task2(){
     fp = fopen("input.txt", "r");
     int n = 0;
     char s[10];
-    while(fgets(s, 10, fp) != NULL) n++;
+    while(fgets(s, 10, fp)!= NULL) n++;
     fclose(fp);
     n = (int)(sqrt(n/2));
     fp = fopen("input.txt", "r");
@@ -44,7 +44,7 @@ void task2(){
                 min = arr1[i][j];
                 min_index = i*n + j;
             }
-            if (arr1[i][j] % 2 != 0) odd_count++;
+            if (arr1[i][j] % 2!= 0) odd_count++;
         }
     printf("Minimum element in the first matrix: %d at index %d\n", min, min_index);
     printf("Number of odd numbers in the first matrix: %d\n", odd_count);
@@ -55,36 +55,19 @@ void task2(){
         identical_rows[i] = 1;
         identical_cols[i] = 1;
         for (int j = 1; j<n; j++){
-            if (arr1[i][j] != arr1[i][0]) identical_rows[i] = 0;
-            if (arr1[j][i] != arr1[0][i]) identical_cols[i] = 0;
+            if (arr1[i][j]!= arr1[i][0]) identical_rows[i] = 0;
+            if (arr1[j][i]!= arr1[0][i]) identical_cols[i] = 0;
         }
     }
 
-    fp = fopen("output.txt", "w");
-    for (int i = 0; i<n; i++){
-        for (int j = 0; j<n; j++)
-            fprintf(fp, "%d ", arr1[i][j]+arr2[i][j]);
-        fprintf(fp, "\n");
-    }
-    fprintf(fp, "\n");
+    printf("Matrix with identical numbers in each row or column:\n");
     for (int i = 0; i<n; i++){
         for (int j = 0; j<n; j++){
-            int t = 0;
-            for (int k = 0; k<n; k++)
-                t+=arr1[i][k]*arr2[k][j];
-            fprintf(fp, "%d ", t);
+            if (identical_rows[i] || identical_cols[j]) printf("%d ", arr1[i][j]);
+            else printf("0 ");
         }
-        fprintf(fp, "\n");
+        printf("\n");
     }
-    fprintf(fp, "\n");
-    for (int i = 0; i<n; i++){
-        for (int j = 0; j<n; j++){
-            if (identical_rows[i] || identical_cols[j]) fprintf(fp, "%d ", arr1[i][j]);
-            else fprintf(fp, "0 ");
-        }
-        fprintf(fp, "\n");
-    }
-    fclose(fp);
 }
 
 int main(){
