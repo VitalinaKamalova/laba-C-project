@@ -3,6 +3,7 @@
 #include <math.h>
 #include <time.h>
 
+
 void task1(){
     FILE *fp;
     fp = fopen("input.txt", "w");
@@ -17,7 +18,7 @@ void task2(){
     fp = fopen("input.txt", "r");
     int n = 0;
     char s[10];
-    while(fgets(s, 10, fp)!= NULL) n++;
+    while(fgets(s, 10, fp) != NULL) n++;
     fclose(fp);
     n = (int)(sqrt(n/2));
     fp = fopen("input.txt", "r");
@@ -33,23 +34,22 @@ void task2(){
             arr2[i][j] = atoi(s);
         }
     fclose(fp);
-
-    // Task 1: Find the minimum element in the first matrix and count the number of odd numbers
+    
     int min = arr1[0][0];
-    int min_index = 0;
-    int odd_count = 0;
-    for (int i = 0; i<n; i++)
+    int min_ind = 0;
+    int odd_count= 0;
+    for (int i = 0; i<n; i++){
         for (int j = 0; j<n; j++){
-            if (arr1[i][j] < min){
+            if(arr1[i][j] < min){
                 min = arr1[i][j];
-                min_index = i*n + j;
+                min_ind = i*n + j;
             }
-            if (arr1[i][j] % 2!= 0) odd_count++;
+        if (arr1[i][j]%2 != 0) odd_count++;
         }
-    printf("Minimum element in the first matrix: %d at index %d\n", min, min_index);
-    printf("Number of odd numbers in the first matrix: %d\n", odd_count);
-
-    // Task 2: Find the matrix with identical numbers in each row or column
+    }
+    printf(" min element is %d with index %d\n", min, min_ind);
+    printf("odd numbers: %d\n", odd_count);
+    
     int identical_rows[n], identical_cols[n];
     for (int i = 0; i<n; i++){
         identical_rows[i] = 1;
@@ -60,7 +60,8 @@ void task2(){
         }
     }
 
-    printf("Matrix with identical numbers in each row or column:\n");
+    printf("Матрица с идентичными значними строк и столбцов:\n");
+    
     for (int i = 0; i<n; i++){
         for (int j = 0; j<n; j++){
             if (identical_rows[i] || identical_cols[j]) printf("%d ", arr1[i][j]);
@@ -68,10 +69,27 @@ void task2(){
         }
         printf("\n");
     }
+    
+    fp = fopen("output.txt", "w");
+    for (int i = 0; i<n; i++){
+        for (int j = 0; j<n; j++)
+            fprintf(fp, "%d ", arr1[i][j]+arr2[i][j]);
+        fprintf(fp, "\n");
+    }
+    fprintf(fp, "\n");
+    for (int i = 0; i<n; i++){
+        for (int j = 0; j<n; j++){
+            int t = 0;
+            for (int k = 0; k<n; k++)
+                t+=arr1[i][k]*arr2[k][j];
+            fprintf(fp, "%d ", t);
+        }
+        fprintf(fp, "\n");
+    }
+    
 }
 
 int main(){
-    srand(time(NULL));
     clock_t begin = clock();
     task1();
     task2();
