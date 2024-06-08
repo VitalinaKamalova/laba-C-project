@@ -3,7 +3,6 @@
 #include <math.h>
 #include <time.h>
 
-
 void task1(){
     FILE *fp;
     fp = fopen("input.txt", "w");
@@ -13,9 +12,8 @@ void task1(){
     fclose(fp);
 }
 
-
 void task2(){
-     FILE *fp;
+    FILE *fp;
     fp = fopen("input.txt", "r");
     int n = 0;
     char s[10];
@@ -35,6 +33,33 @@ void task2(){
             arr2[i][j] = atoi(s);
         }
     fclose(fp);
+
+    // Task 1: Find the minimum element in the first matrix and count the number of odd numbers
+    int min = arr1[0][0];
+    int min_index = 0;
+    int odd_count = 0;
+    for (int i = 0; i<n; i++)
+        for (int j = 0; j<n; j++){
+            if (arr1[i][j] < min){
+                min = arr1[i][j];
+                min_index = i*n + j;
+            }
+            if (arr1[i][j] % 2 != 0) odd_count++;
+        }
+    printf("Minimum element in the first matrix: %d at index %d\n", min, min_index);
+    printf("Number of odd numbers in the first matrix: %d\n", odd_count);
+
+    // Task 2: Find the matrix with identical numbers in each row or column
+    int identical_rows[n], identical_cols[n];
+    for (int i = 0; i<n; i++){
+        identical_rows[i] = 1;
+        identical_cols[i] = 1;
+        for (int j = 1; j<n; j++){
+            if (arr1[i][j] != arr1[i][0]) identical_rows[i] = 0;
+            if (arr1[j][i] != arr1[0][i]) identical_cols[i] = 0;
+        }
+    }
+
     fp = fopen("output.txt", "w");
     for (int i = 0; i<n; i++){
         for (int j = 0; j<n; j++)
@@ -51,10 +76,19 @@ void task2(){
         }
         fprintf(fp, "\n");
     }
+    fprintf(fp, "\n");
+    for (int i = 0; i<n; i++){
+        for (int j = 0; j<n; j++){
+            if (identical_rows[i] || identical_cols[j]) fprintf(fp, "%d ", arr1[i][j]);
+            else fprintf(fp, "0 ");
+        }
+        fprintf(fp, "\n");
+    }
+    fclose(fp);
 }
 
-
 int main(){
+    srand(time(NULL));
     clock_t begin = clock();
     task1();
     task2();
